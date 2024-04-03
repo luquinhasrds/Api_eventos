@@ -6,13 +6,13 @@ from .attendees_repository import AttendeesRepository
 db_connection_handler.connect_to_db()
 
 
-@pytest.mark.skip(reason="novo registro em banco de dados")
+#@pytest.mark.skip(reason="novo registro em banco de dados")
 def test_insert_attendee():
-    event_id = "meu-uuid-e-nois2"
+    event_id = "meu-uuid-e-nois"
     attendees_info = {
-        "uuid": "meu_uuid_attendee",
-        "name": "attendee_name",
-        "email": "email@email.com",
+        "uuid": "meu_uuid_attendeee",
+        "name": "attendee_namea",
+        "email": "emaill@email.com",
         "event_id": event_id
     }
 

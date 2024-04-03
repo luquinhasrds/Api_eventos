@@ -1,8 +1,8 @@
 from src.models.settings.base import Base
 from sqlalchemy import Column, String, DateTime, ForeignKey
 from sqlalchemy.sql import func
-from src.models.entities.events import Events
-from sqlalchemy.orm import Relationship
+#from src.models.entities.events import Events
+#from sqlalchemy.orm import Relationship
 
 class Attendees(Base):
     __tablename__ = "attendees"
@@ -13,7 +13,7 @@ class Attendees(Base):
     event_id = Column(String, ForeignKey("events.id"))
     created_at = Column(DateTime, default=func.now())
 
-    event = Relationship("Events")
+    #event = Relationship("Events")
 
     def __repr__(self):
         return f"Attendees [name={self.name}, email{self.email}, event_id={self.event_id}]"
