@@ -9,9 +9,9 @@ db_connection_handler.connect_to_db()
 @pytest.mark.skip(reason="novo registro em banco de dados")
 def test_insert_events():
     event = {
-        "uuid": "meu-uuid-e-nois2",
+        "uuid": "meu-uuid-e-nois2333",
         "title": "meu-title",
-        "slug": "meu-slug-aqui!2",
+        "slug": "meu-slug-aqui!221",
         "maximum_attendees": 20
     }
 

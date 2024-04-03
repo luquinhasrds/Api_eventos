@@ -6,7 +6,7 @@ from sqlalchemy.orm.exc import NoResultFound
 
 class EventsRepository:
     def insert_event(self,eventsInfo: Dict) -> Dict:
-        with db_connection_handler as datebase:
+        with db_connection_handler as database:
             try:
                 event = Events(
                     id=eventsInfo.get("uuid"),
@@ -15,23 +15,23 @@ class EventsRepository:
                     slug=eventsInfo.get("slug"),
                     maximum_attendees=eventsInfo.get("maximum_attendees"),
                 )
-                datebase.session.add(event)
-                datebase.session.commit()
+                database.session.add(event)
+                database.session.commit()
 
                 return eventsInfo
             except IntegrityError:
-                raise Exception("evento ja cadastrado")
+                raise Exception("evento ja cadastrado!!")
             
             except Exception as exception:
-                datebase.session.rollback()
+                database.session.rollback()
                 raise exception 
 
 
     def get_event_by_id(self, event_id: str) -> Events:
-        with db_connection_handler as datebase:
+        with db_connection_handler as database:
             try:
                 event = (
-                    datebase.session
+                    database.session
                         .query(Events)
                         .filter(Events.id==event_id)
                         .one()

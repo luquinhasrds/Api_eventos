@@ -1,5 +1,6 @@
 from src.models.settings.base import Base     
 from sqlalchemy import Column, String, Integer   
+from sqlalchemy.orm import relationship
 
 
 class Events(Base):
