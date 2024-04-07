@@ -12,4 +12,4 @@ class CheckIns(Base):
     attendeeId= Column(String, ForeignKey("attendees.id"))
 
     def __repr__(self):
-        return f"Check_in [attendeeId={self.attendeeId}]"
+        return f"CheckIns [attendeeId={self.attendeeId}]"

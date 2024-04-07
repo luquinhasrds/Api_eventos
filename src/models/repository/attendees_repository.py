@@ -30,14 +30,14 @@ class AttendeesRepository:
                 database.session.rollback()
                 raise exception
             
-    def get_attendee_badge_by_id(self, attendees_id: str):
+    def get_attendee_badge_by_id(self, attendee_id: str):
         with db_connection_handler as database:
             try:
                 attendee = (
                     database.session
                         .query(Attendees)
                         .join(Events, Events.id == Attendees.event_id)
-                        .filter(Attendees.id == attendees_id)
+                        .filter(Attendees.id==attendee_id)
                         .with_entities(
                             Attendees.name,
                             Attendees.email,
